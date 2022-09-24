@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomepageController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,11 @@ Route::get('/', function () {
 
 
 // ** Route for both (admin and user)
+// Route::group(['middleware' => ['auth', 'verified']], function() - if need email verification
 Route::group(['middleware' => ['auth']], function() {
      Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
+
 
 // Route for administrator
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
