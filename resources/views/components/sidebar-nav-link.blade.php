@@ -2,8 +2,8 @@
 
 @php
 $classes = ($active ?? false)
-? 'px-3 py-2 rounded-sm mb-0.5 last:mb-0 bg-slate-700 block text-slate-200 truncate transition duration-150
-hover:text-slate-200'
+? 'px-3 py-2 rounded-sm mb-0.5 last:mb-0 bg-slate-800 block text-slate-200 truncate transition duration-150
+hover:text-slate-200 border-l-4 border-indigo-700'
 : 'px-3 py-2 rounded-sm mb-0.5 last:mb-0 block text-slate-200 truncate transition duration-150 hover:text-slate-200';
 @endphp
 
