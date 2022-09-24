@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         $administrator = \App\Models\User::factory()->create([
             'name' => 'X-Power',
             'email' => 'administrator@xpower.com',
-            'password' => Hash::make('xpower.password'),
+            // 'password' => Hash::make('xpower.password'),
+            'password' => Hash::make('administrator@xpower.com'),
         ]);
 
          $administrator->attachRole('administrator');
