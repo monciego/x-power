@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Login route
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth.login');
+})->middleware('guest');
 
+
+// ** Route for both (admin and user)
+Route::group(['middleware' => ['auth']], function() {
+     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 // Route for administrator
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
-    Route::get('/dashboard', function () {
-        return view('administrator.dashboard.index');
-    })->name('dashboard');
+
+});
+
+// Route for user
+Route::group(['middleware' => ['auth', 'role:user']], function() {
+
 });
 
 require __DIR__.'/auth.php';
