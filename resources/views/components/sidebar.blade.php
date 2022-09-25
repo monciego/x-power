@@ -9,7 +9,7 @@
     </button>
     {{-- logo --}}
     <a href="/" class="block">
-        <x-application-logo class="block h-12 " />
+        <x-application-logo class="block mt-8" />
     </a>
 </header>
 
