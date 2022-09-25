@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 // Route for administrator
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
-
+    Route::resource('products', ProductController::class);
 });
 
 // Route for user
