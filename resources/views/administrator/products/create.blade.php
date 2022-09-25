@@ -1,18 +1,20 @@
 <x-app-layout>
     <div class="px-2 md:px-40">
-        <form>
+        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <h2 class="mb-4 font-medium text-lg">Add Product</h2>
 
-            <div class=" mb-6">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-300">
+            <div class="mb-6">
+                <label for="product_name" class="block mb-2 text-sm font-medium text-gray-300">
                     Product Name
                 </label>
-                <input type="email" id="email"
+                <input type="text" name="product_name" id="product_name"
                     class="shadow-sm  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white shadow-sm-light"
                     required="">
             </div>
+
             <div class="mb-6">
-                <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-300">
+                <label for="product_price" class="block mb-2 text-sm font-medium text-gray-300">
                     Product Price
                 </label>
                 <div class="relative">
@@ -33,35 +35,34 @@
                             <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
                         </svg>
                     </div>
-                    <input type="number" id="email-address-icon"
+                    <input type="number" name="product_price" id="product_price"
                         class=" border text-sm rounded-lg  block w-full pl-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                 </div>
             </div>
 
-            <div class="mb-6 ">
-                <label class="block mb-2 text-sm font-medium text-gray-300" for="user_avatar">Upload
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-300" for="product_image">Upload
                     Image</label>
                 <input
                     class="block w-full text-sm  rounded-lg  bordercursor-pointer  text-gray-400 focus:outline-none bg-gray-700 border-gray-600 placeholder-gray-400"
-                    aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                <div class="mt-1 text-sm text-gray-300" id="user_avatar_help">Upload the image of the product</div>
+                    aria-describedby="product_image" name="product_image" id="product_image" type="file">
+                <div class="mt-1 text-sm text-gray-300" id="product_image">Upload the image of the product</div>
             </div>
 
             <div class="mb-6">
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-400">Product
+                <label for="product_description" class="block mb-2 text-sm font-medium text-gray-400">Product
                     Description (if any)</label>
-                <textarea id="message" rows="4"
+                <textarea name="product_description" id="product_description" rows="4"
                     class="block p-2.5 w-full text-sm rounded-lg border  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"></textarea>
             </div>
 
 
             <div class="flex items-start mb-6">
                 <div class="flex items-center h-5">
-                    <input id="terms" type="checkbox" value=""
-                        class="w-4 h-4 rounded border us:ring-3  bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800"
-                        required="">
+                    <input id="is_available" type="checkbox" name="is_available"
+                        class="w-4 h-4 rounded border us:ring-3  bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800">
                 </div>
-                <label for="terms" class="ml-2 text-sm font-medium text-gray-300"> Check if this
+                <label for="is_available" class="ml-2 text-sm font-medium text-gray-300"> Check if this
                     product is available </label>
             </div>
             <button type="submit"

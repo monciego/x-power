@@ -36,7 +36,19 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $request->validate([
+            'product_name' => 'required',
+            'product_price' => 'required',
+        ]);
+        Product::create([
+            'product_name' => $request->product_name,
+            'product_price' => $request->product_price,
+            'product_description' => $request->product_description,
+            // 'product_image' => $this->storeImage($request),
+            'is_available' => $request->is_available === 'on',
+        ]);
+
+        return redirect(route('products.index'));
     }
 
     /**
