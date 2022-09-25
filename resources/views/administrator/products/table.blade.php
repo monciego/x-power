@@ -1,4 +1,4 @@
-{{-- @unless ($products->isEmpty()) --}}
+@unless ($products->isEmpty())
 <div class="overflow-x-auto">
     <table class="table-auto w-full">
         {{-- table header --}}
@@ -22,21 +22,24 @@
             </tr>
         </thead>
         {{-- table body --}}
-        <tbody class="text-sm font-medium divide-y text-slate-300 divide-slate-100">
-            {{-- row --}}
-            {{-- @foreach ($products as $product) --}}
+        <tbody class="text-sm font-medium divide-y text-slate-300 divide-slate-800">
+            @foreach ($products as $product)
             <tr>
                 <td class="p-2">
-                    <p>Windshield Bags</p>
+                    <p>{{ $product->product_name }}</p>
                 </td>
                 <td class="p-2 ">
-                    <p>Windshields & Fairings</p>
+                    <p>Windshields</p>
                 </td>
                 <td class="p-2 ">
-                    <p>₱100.00</p>
+                    <p>₱{{ $product->product_price }}</p>
                 </td>
                 <td class="p-2 ">
+                    @if ($product->is_available === 1)
+                    <p class="text-indigo-500">Available</p>
+                    @else
                     <p class="text-red-700">Out of Stock</p>
+                    @endif
                 </td>
                 <td class="p-2 ">
                     <div>
@@ -47,12 +50,12 @@
                     </div>
                 </td>
             </tr>
-            {{-- @endforeach --}}
+            @endforeach
         </tbody>
     </table>
 </div>
-{{-- @else --}}
-{{-- <div class="flex-col flex items-center justify-center">
+@else
+<div class="flex-col flex items-center justify-center">
     <div>
         <img src="" alt="There are currently no listed products.">
     </div>
@@ -62,4 +65,4 @@
         </h1>
     </div>
 </div> --}}
-{{-- @endunless --}}
+{{-- @endunless
