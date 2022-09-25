@@ -43,10 +43,10 @@
                 </td>
                 <td class="p-2 ">
                     <div>
-                        <button
+                        <a href="{{ route('products.show', $product) }}"
                             class="inline-flex items-center gap-1 bg-indigo-500 hover:bg-indigo-600 text-white p-1 px-5 rounded">
                             More Details
-                        </button>
+                        </a>
                     </div>
                 </td>
             </tr>
