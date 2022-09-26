@@ -8,9 +8,22 @@
                 <label for="product_name" class="block mb-2 text-sm font-medium text-gray-300">
                     Product Name
                 </label>
-                <input type="text" name="product_name" id="product_name"
-                    class="shadow-sm  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white shadow-sm-light"
-                    required="">
+                <input type="text" name="product_name" id="product_name" value="{{ old('product_name') }}"
+                    class="shadow-sm  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white shadow-sm-light">
+                @error('product_name')
+                <div class="flex items-center gap-1 mt-1 ml-1">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium text-sm">
+                        {{ $message }}
+                    </p>
+                </div>
+                @enderror
             </div>
 
             <div class="mb-6">
@@ -35,9 +48,23 @@
                             <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
                         </svg>
                     </div>
-                    <input type="number" name="product_price" id="product_price"
+                    <input value="{{ old('product_price') }}" type="number" name="product_price" id="product_price"
                         class=" border text-sm rounded-lg  block w-full pl-10 p-2.5  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                 </div>
+                @error('product_price')
+                <div class="flex items-center gap-1 mt-1 ml-1">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium text-sm">
+                        {{ $message }}
+                    </p>
+                </div>
+                @enderror
             </div>
 
             <div class="mb-6">
