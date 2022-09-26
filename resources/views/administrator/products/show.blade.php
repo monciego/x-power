@@ -1,9 +1,14 @@
 <x-app-layout>
     <div class="mx-auto w-full lg:w-[90%] rounded-lg border shadow-md bg-gray-900 border-gray-700">
         <div class="h-[18rem]">
-            <img class="rounded-t-lg h-full w-full object-cover"
-                src="https://images.pexels.com/photos/188777/pexels-photo-188777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            @if ($product->product_image)
+            <img class="rounded-t-lg h-full w-full object-cover" src="{{ Storage::url($product->product_image) }}"
                 alt="">
+            @else
+            <img class="rounded-t-lg h-full w-full object-cover" src="{{ asset('images/no-image.jpg') }}"
+                alt="No Image">
+            @endif
+
         </div>
         <div class="p-5">
             <div class="flex items-center justify-between mb-3">

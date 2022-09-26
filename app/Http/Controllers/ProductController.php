@@ -41,12 +41,23 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required',
             'product_price' => 'required',
+            'product_image' => ['nullable','mimes:png,jpg,jpeg,gif', 'max:2048'],
         ]);
+
+        $image_path = null;
+        $randomNumber = random_int(1000, 9999);
+        if ($request->hasFile('product_image')) {
+            $image_path = $request->file('product_image')->storeAs(
+                'product-images',
+                $randomNumber . '.' . uniqid() . '.' . $request->file('product_image')->getClientOriginalExtension(),
+                'public',
+            );
+        }
         Product::create([
             'product_name' => $request->product_name,
             'product_price' => $request->product_price,
             'product_description' => $request->product_description,
-            // 'product_image' => $this->storeImage($request),
+            'product_image' => $image_path,
             'is_available' => $request->is_available === 'on',
         ]);
 

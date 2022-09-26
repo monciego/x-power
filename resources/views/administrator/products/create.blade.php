@@ -41,17 +41,18 @@
             </div>
 
             <div class="mb-6">
-                <label class="block mb-2 text-sm font-medium text-gray-300" for="product_image">Upload
+                <label class="block mb-2 text-sm font-medium text-gray-300" for="product_image">Product
                     Image</label>
                 <input
-                    class="block w-full text-sm  rounded-lg  bordercursor-pointer  text-gray-400 focus:outline-none bg-gray-700 border-gray-600 placeholder-gray-400"
+                    class="block w-full text-base  rounded-lg  bordercursor-pointer text-gray-400 focus:outline-none bg-gray-700 border-gray-600 placeholder-gray-400"
                     aria-describedby="product_image" name="product_image" id="product_image" type="file">
-                <div class="mt-1 text-sm text-gray-300" id="product_image">Upload the image of the product</div>
+
+                <div class="mt-1 text-sm text-gray-400">Upload the image of the product</div>
             </div>
 
             <div class="mb-6">
                 <label for="product_description" class="block mb-2 text-sm font-medium text-gray-400">Product
-                    Description (if any)</label>
+                    Description (optional)</label>
                 <textarea name="product_description" id="product_description" rows="4"
                     class="block p-2.5 w-full text-sm rounded-lg border  bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"></textarea>
             </div>
