@@ -61,7 +61,7 @@ class ProductController extends Controller
             'is_available' => $request->is_available === 'on',
         ]);
 
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('success-message', 'Product added successfully!');
     }
 
     /**
@@ -109,6 +109,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect(route('products.index'));
+        return redirect(route('products.index'))->with('danger-message', 'Product deleted successfully!');;
     }
 }
