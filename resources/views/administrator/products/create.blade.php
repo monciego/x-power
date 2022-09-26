@@ -60,7 +60,7 @@
 
             <div class="flex items-start mb-6">
                 <div class="flex items-center h-5">
-                    <input id="is_available" type="checkbox" name="is_available"
+                    <input checked id="is_available" type="checkbox" name="is_available"
                         class="w-4 h-4 rounded border us:ring-3  bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800">
                 </div>
                 <label for="is_available" class="ml-2 text-sm font-medium text-gray-300"> Check if this
