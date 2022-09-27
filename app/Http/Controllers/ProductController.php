@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-
+use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
@@ -38,26 +38,21 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $request->validate([
+        $formFields = $request->validate([
             'product_name' => 'required',
             'product_price' => 'required',
             'product_image' => ['nullable','mimes:png,jpg,jpeg,gif', 'max:2048'],
         ]);
 
-        $image_path = null;
-        $randomNumber = random_int(1000, 9999);
-        if ($request->hasFile('product_image')) {
-            $image_path = $request->file('product_image')->storeAs(
-                'product-images',
-                $randomNumber . '.' . uniqid() . '.' . $request->file('product_image')->getClientOriginalExtension(),
-                'public',
-            );
-        }
+        if($request->hasFile('product_image')) {
+            $product_image = $request->file('product_image')->store('products', 'public');
+        };
+
         Product::create([
             'product_name' => $request->product_name,
             'product_price' => $request->product_price,
             'product_description' => $request->product_description,
-            'product_image' => $image_path,
+            'product_image' => $product_image,
             'is_available' => $request->is_available === 'on',
         ]);
 
@@ -85,7 +80,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('administrator.products.edit')->with('product', $product);
     }
 
     /**
@@ -95,9 +90,31 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
-        //
+        $formFields = $request->validate([
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'product_image' => ['nullable','mimes:png,jpg,jpeg,gif', 'max:2048'],
+        ]);
+
+         if($request->hasFile('product_image')) {
+            $product_image = $request->file('product_image')->store('products', 'public');
+        } else {
+            $product_image =  $product->product_image;
+        };
+
+
+         $product->update([
+            'product_name' => $request->product_name,
+            'product_price' => $request->product_price,
+            'product_description' => $request->product_description,
+            'product_image' => $product_image,
+            'is_available' => $request->is_available === 'on',
+        ]);
+
+
+        return redirect(route('products.index'))->with('success-message', 'Product updated successfully!');
     }
 
     /**

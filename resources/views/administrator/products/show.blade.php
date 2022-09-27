@@ -3,7 +3,7 @@
         <div class="h-[18rem]">
             @if ($product->product_image)
             <img class="rounded-t-lg h-full w-full object-cover" src="{{ Storage::url($product->product_image) }}"
-                alt="">
+                alt="{{ $product->product_name }}">
             @else
             <img class="rounded-t-lg h-full w-full object-cover" src="{{ asset('images/no-image.jpg') }}"
                 alt="No Image">
@@ -36,9 +36,8 @@
             <p class="mb-3 font-normaltext-gray-400">{!! $product->product_description !!}</p>
             @endif
 
-
             <div class="flex items-center gap-3">
-                <a href="#"
+                <a href="{{ route('products.edit', $product) }}"
                     class="inline-flex gap-1 items-center py-2 px-3 text-sm font-medium text-center  rounded  focus:ring-4 focus:outline-none  bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-4 h-4">
