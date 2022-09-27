@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProductController;
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['auth']], function() {
 // Route for administrator
 Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::resource('products', ProductController::class);
+    Route::resource('product-categories', CategoryProductController::class);
 });
 
 // Route for user

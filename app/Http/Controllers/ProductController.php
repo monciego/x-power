@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\CategoryProduct;
 use Illuminate\Http\Request;
 class ProductController extends Controller
 {
@@ -16,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('administrator.products.index',[
-            'products' => Product::latest()->paginate(6)
+            'products' => Product::with('category_product')->latest()->paginate(6)
         ]);
     }
 
@@ -27,7 +28,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('administrator.products.create');
+        return view('administrator.products.create', [
+            'categories' => CategoryProduct::all()
+        ]);
     }
 
     /**
@@ -41,15 +44,20 @@ class ProductController extends Controller
         $formFields = $request->validate([
             'product_name' => 'required',
             'product_price' => 'required',
+            'category_product_id' => 'required',
             'product_image' => ['nullable','mimes:png,jpg,jpeg,gif', 'max:2048'],
         ]);
 
+
         if($request->hasFile('product_image')) {
             $product_image = $request->file('product_image')->store('products', 'public');
+        } else {
+             $product_image = null;
         };
 
         Product::create([
             'product_name' => $request->product_name,
+            'category_product_id' => $request->category_product_id,
             'product_price' => $request->product_price,
             'product_description' => $request->product_description,
             'product_image' => $product_image,
@@ -80,7 +88,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('administrator.products.edit')->with('product', $product);
+        return view('administrator.products.edit', [
+              'categories' => CategoryProduct::all()
+        ])->with('product', $product);
     }
 
     /**
@@ -95,6 +105,7 @@ class ProductController extends Controller
         $formFields = $request->validate([
             'product_name' => 'required',
             'product_price' => 'required',
+            'category_product_id' => 'required',
             'product_image' => ['nullable','mimes:png,jpg,jpeg,gif', 'max:2048'],
         ]);
 
@@ -107,6 +118,7 @@ class ProductController extends Controller
 
          $product->update([
             'product_name' => $request->product_name,
+            'category_product_id' => $request->category_product_id,
             'product_price' => $request->product_price,
             'product_description' => $request->product_description,
             'product_image' => $product_image,

@@ -29,6 +29,34 @@
             </div>
 
             <div class="mb-6">
+                <label for="category_product_id" class="block mb-2 text-sm font-medium text-gray-400">Select an
+                    option</label>
+                <select id="category_product_id" name="category_product_id"
+                    class="text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                    <option selected disabled hidden>Choose Category</option>
+                    @foreach ($categories as $category)
+                    <option {{ $product->category_product_id == $category->id ? 'selected' : '' }} value="{{
+                        $category->id }}" >
+                        {{ $category->product_category }}</option>
+                    @endforeach
+                </select>
+                @error('category_product_id')
+                <div class="flex items-center gap-1 mt-1 ml-1">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium text-sm">
+                        {{ $message }}
+                    </p>
+                </div>
+                @enderror
+            </div>
+
+            <div class="mb-6">
                 <label for="product_price" class="block mb-2 text-sm font-medium text-gray-300">
                     Product Price
                 </label>

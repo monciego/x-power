@@ -17,7 +17,7 @@
                         {{ $product->product_name }}
                     </h5>
                     <span class="bg-slate-700 text-white px-4 rounded text-sm py-1">
-                        Headlights
+                        {{ $product->category_product->product_category }}
                     </span>
                 </div>
 

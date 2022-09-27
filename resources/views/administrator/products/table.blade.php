@@ -29,7 +29,7 @@
                     <p>{{ $product->product_name }}</p>
                 </td>
                 <td class="p-2 ">
-                    <p>Windshields</p>
+                    <p>{{ $product->category_product->product_category }}</p>
                 </td>
                 <td class="p-2 ">
                     <p>₱{{ $product->product_price }}</p>
