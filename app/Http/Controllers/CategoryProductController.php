@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CategoryProduct;
 use App\Http\Requests\StoreCategoryProductRequest;
 use App\Http\Requests\UpdateCategoryProductRequest;
+use App\Models\Product;
 
 class CategoryProductController extends Controller
 {
@@ -56,9 +57,10 @@ class CategoryProductController extends Controller
      * @param  \App\Models\CategoryProduct  $categoryProduct
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoryProduct $categoryProduct)
+    public function show($categoryProduct)
     {
-        //
+        $products = Product::with('category_product')->where('category_product_id', $categoryProduct)->get();
+        return view('administrator.products.category.show', compact('products'));
     }
 
     /**

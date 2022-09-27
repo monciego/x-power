@@ -12,13 +12,13 @@
         </div>
         <div class="p-3 grid grid-cols-6 gap-6">
             @foreach ($categories as $category)
-            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+            <a href="{{ route('product-categories.show', $category) }}" class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <div class="block p-4   bg-gray-800 border-gray-700 hover:bg-gray-700">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight0 text-white">
                         {{ $category->product_category }}
                     </h5>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
 
