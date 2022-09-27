@@ -18,7 +18,7 @@
             @include('administrator.services.table')
         </div>
     </div>
-    {{-- <div class="mt-4">
-        {{ $products->links() }}
-    </div> --}}
+    <div class="mt-4">
+        {{ $services->links() }}
+    </div>
 </x-app-layout>
