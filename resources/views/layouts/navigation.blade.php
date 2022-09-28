@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-[#161616] fixed left-0 right-0 text-white border-b border-gray-700">
+<nav x-data="{ open: false }" class="bg-[#161616] fixed left-0 right-0 text-white border-b border-gray-700 z-[800]">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
