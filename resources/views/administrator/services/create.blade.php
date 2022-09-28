@@ -26,9 +26,9 @@
                 @enderror
             </div>
 
-            {{-- <div class="mb-6">
+            <div class="mb-6">
                 @if ($categories->count() === 0)
-                <a href="{{ route('product-categories.index') }}"
+                <a href="{{ route('service-categories.index') }}"
                     class="mt-4 px-4 py-2 font-medium text-sm flex items-center justify-center  border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-slate-600 hover:bg-slate-700 text-white">
                     <svg class="w-3 h-3 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path
@@ -37,19 +37,19 @@
                     <span class="xs:block text-sm ml-2">Add Categories</span>
                 </a>
                 @else
-                <label for="category_product_id" class="block mb-2 text-sm font-medium text-gray-400">Select an
+                <label for="category_service_id" class="block mb-2 text-sm font-medium text-gray-400">Select an
                     option</label>
-                <select id="category_product_id" name="category_product_id"
+                <select id="category_service_id" name="category_service_id"
                     class="text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                     <option selected disabled hidden>Choose Category</option>
                     @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" @if (old('category_product_id')==$category->id)
+                    <option value="{{ $category->id }}" @if (old('category_service_id')==$category->id)
                         selected="selected" @endif >
-                        {{ $category->product_category }}</option>
+                        {{ $category->service_category }}</option>
                     @endforeach
                 </select>
                 @endif
-                @error('category_product_id')
+                @error('category_service_id')
                 <div class="flex items-center gap-1 mt-1 ml-1">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
@@ -64,7 +64,7 @@
                 </div>
                 @enderror
             </div>
-            --}}
+
             <div class="mb-6">
                 <label for="service_price_range" class="block mb-2 text-sm font-medium text-gray-300">
                     Service Price Range

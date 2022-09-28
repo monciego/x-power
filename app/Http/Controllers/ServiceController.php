@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Models\CategoryService;
 
 class ServiceController extends Controller
 {
@@ -27,7 +28,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('administrator.services.create');
+        return view('administrator.services.create', [
+            'categories' => CategoryService::all()
+        ]);
     }
 
     /**
@@ -41,12 +44,12 @@ class ServiceController extends Controller
          $formFields = $request->validate([
             'service_name' => 'required',
             'service_price_range' => 'required',
-            // 'category_service_id' => 'required',
+            'category_service_id' => 'required',
         ]);
 
         Service::create([
             'service_name' => $request->service_name,
-            // 'category_service_id' => $request->category_service_id,
+            'category_service_id' => $request->category_service_id,
             'service_price_range' => $request->service_price_range,
             'service_description' => $request->service_description,
             'is_available' => $request->is_available === 'on',

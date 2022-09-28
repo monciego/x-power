@@ -29,8 +29,7 @@
                     <p>{{ $service->service_name }}</p>
                 </td>
                 <td class="p-2 ">
-                    <p>Inspection</p>
-                    {{-- <p>{{ $service->category_service->service_category }}</p> --}}
+                    <p>{{ $service->category_service->service_category }}</p>
                 </td>
                 <td class="p-2 ">
                     <p>₱{{ $service->service_price_range }}</p>

@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('category_services', function (Blueprint $table) {
             $table->id();
-             $table->foreignId('category_service_id');
-            $table->string('service_name');
-            $table->longText('service_description')->nullable();
-            $table->string('service_price_range');
-            $table->boolean('is_available')->nullable();
+             $table->string('service_category');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('category_services');
     }
 };

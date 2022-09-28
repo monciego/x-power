@@ -10,9 +10,14 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
+        'category_service_id',
         'service_name',
         'service_price_range',
         'service_description',
         'is_available',
     ];
+
+    public function category_service() {
+        return $this->belongsTo(CategoryService::class);
+    }
 }
