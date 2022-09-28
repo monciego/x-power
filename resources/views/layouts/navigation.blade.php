@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Discover') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -72,7 +72,7 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link class="bg-[#161616] text-white" :href="route('dashboard')"
                 :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Discover') }}
             </x-responsive-nav-link>
         </div>
 
