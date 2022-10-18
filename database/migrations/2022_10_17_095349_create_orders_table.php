@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('contact_number');
             $table->string('shipping_address');
+            $table->string('transaction_number');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

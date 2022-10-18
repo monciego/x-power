@@ -33,10 +33,12 @@
                                         <div class="flex flex-1 items-end justify-between text-sm">
                                             <p class="text-gray-500">Placed {{ $order->created_at->diffForHumans() }}
                                             </p>
-                                            {{-- <div class="flex">
-                                                <button type="button"
-                                                    class="font-medium text-indigo-600 hover:text-indigo-500">Cancel</button>
-                                            </div> --}}
+                                            <div class="flex">
+                                                <a href=""
+                                                    class="font-bold underline text-indigo-800 hover:text-indigo-900">
+                                                    View more
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>

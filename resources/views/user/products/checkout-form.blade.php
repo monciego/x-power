@@ -3,6 +3,7 @@
     @csrf
     <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
     <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
+    <input type="hidden" name="status" id="status" value="Processing">
     <div
         class="flex flex-col sm:flex-row xl:flex-col justify-center items-center  bg-gray-800 py-7 sm:py-0 xl:py-10 px-10 xl:w-full">
         <div class="flex flex-col justify-start items-start w-full space-y-4">

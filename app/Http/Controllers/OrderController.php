@@ -63,9 +63,23 @@ class OrderController extends Controller
             'email' => $request->email,
             'contact_number' => $request->contact_number,
             'shipping_address' => $request->shipping_address,
+            'status' => $request->status,
+            'transaction_number' => $this->transactionNumber(),
         ]);
 
         return redirect(route('order.index'))->with('success-message', 'Thank you for your order!');
+    }
+
+    /**
+     * Generates transaction number
+     *
+     * @return response()
+     */
+    public function transactionNumber()
+    {
+        $transaction_number = random_int(1000000000, 9999990000);
+
+        return $transaction_number;
     }
 
     /**
