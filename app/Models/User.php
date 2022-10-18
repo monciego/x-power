@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
 
-// class User extends Authenticatable implements MustVerifyEmail - if need email verification
+// class User extends Authenticatable implements MustVerifyEmail //- if need email verification
 class User extends Authenticatable implements MustVerifyEmail
 {
     use LaratrustUserTrait;
@@ -46,4 +46,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

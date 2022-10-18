@@ -4,8 +4,10 @@ use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\CategoryServiceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +29,7 @@ Route::get('/', function () {
 
 
 // ** Route for both (admin and user)
-// Route::group(['middleware' => ['auth', 'verified']], function() - if need email verification
+// Route::group(['middleware' => ['auth', 'verified']], function() {//- if need email verification
 Route::group(['middleware' => ['auth']], function() {
      Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
@@ -43,7 +45,9 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
 
 // Route for user
 Route::group(['middleware' => ['auth', 'role:user']], function() {
-
+    Route::resource('user-products', UserProductController::class);
+    Route::get('/check-out/{product}', [OrderController::class, 'checkOut'])->name('checkout.index');
+    Route::resource('order', OrderController::class);
 });
 
 require __DIR__.'/auth.php';
