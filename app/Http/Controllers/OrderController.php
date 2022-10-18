@@ -15,7 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::with('user', 'product')->where('user_id', auth()->id())->latest()->paginate(5);
+        return view('user.orders.index', compact('orders'));
     }
     /**
      * Checkout a product.
@@ -64,7 +65,7 @@ class OrderController extends Controller
             'shipping_address' => $request->shipping_address,
         ]);
 
-        return redirect(route('user-products.index'))->with('success-message', 'Thank you for your order!');
+        return redirect(route('order.index'))->with('success-message', 'Thank you for your order!');
     }
 
     /**
