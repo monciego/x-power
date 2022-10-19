@@ -1,10 +1,10 @@
 <x-app-layout>
     <div class="py-10 px-2 sm:px-4 lg:px-8">
         <div class="pointer-events-auto w-full">
-            <div class="flex h-full flex-col  bg-white shadow-xl">
+            <div class="flex h-full flex-col  bg-[#1a1f23] rounded-md shadow-xl">
                 <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                     <div class="flex items-start justify-between">
-                        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">My Orders
+                        <h2 class="text-lg font-medium text-white" id="slide-over-title">My Orders
                         </h2>
                     </div>
                     <div class="mt-8">
@@ -20,18 +20,24 @@
                                     </div>
                                     <div class="ml-4 flex flex-1 flex-col">
                                         <div>
-                                            <div class="flex justify-between text-base font-semibold text-gray-900">
-                                                <h3>
-                                                    <a href="#">{{ $order->product->product_name }}</a>
-                                                </h3>
+                                            <div class="flex justify-between text-base font-semibold text-gray-50">
+                                                <div class="flex items-center gap-3">
+                                                    <div>
+                                                        <a href="#">{{ $order->product->product_name }}</a>
+                                                    </div>
+                                                    <div class="bg-slate-700 text-sm py-2 px-4 rounded">
+                                                        {{ $order->status }}
+                                                    </div>
+                                                </div>
+
                                                 <p class="ml-4">₱{{ $order->product->product_price }}</p>
                                             </div>
-                                            <p class="mt-1 text-sm font-medium text-gray-800">{{
+                                            <p class="mt-1 text-sm font-medium text-gray-200">{{
                                                 $order->product->category_product->product_category
                                                 }}</p>
                                         </div>
                                         <div class="flex flex-1 items-end justify-between text-sm">
-                                            <p class="text-gray-500">Placed {{ $order->created_at->diffForHumans() }}
+                                            <p class="text-gray-100">Placed {{ $order->created_at->diffForHumans() }}
                                             </p>
                                             <div class="flex">
                                                 <a href="{{ route('order.show', $order) }}"
