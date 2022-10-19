@@ -90,7 +90,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $order = Order::where('user_id', auth()->id())->findOrFail($order->id);
+        return view('user.orders.show', compact('order'));
     }
 
     /**

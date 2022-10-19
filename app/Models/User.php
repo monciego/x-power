@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
 
 // class User extends Authenticatable implements MustVerifyEmail //- if need email verification
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;

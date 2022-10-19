@@ -15,7 +15,7 @@
                                     <div
                                         class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                         <img src="{{ Storage::url($order->product->product_image) }}"
-                                            alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                            alt="{{ $order->product->product_name }}"
                                             class="h-full w-full object-cover object-center">
                                     </div>
                                     <div class="ml-4 flex flex-1 flex-col">
@@ -34,7 +34,7 @@
                                             <p class="text-gray-500">Placed {{ $order->created_at->diffForHumans() }}
                                             </p>
                                             <div class="flex">
-                                                <a href=""
+                                                <a href="{{ route('order.show', $order) }}"
                                                     class="font-bold underline text-indigo-800 hover:text-indigo-900">
                                                     View more
                                                 </a>
