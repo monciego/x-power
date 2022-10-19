@@ -26,6 +26,10 @@ class OrderController extends Controller
     public function checkOut(Product $product)
     {
 
+        if($product->is_available === 0) {
+             abort(403, 'This product is not available!');
+        }
+
         return view('user.products.checkout', [
             'product' => $product
         ]);
