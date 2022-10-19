@@ -49,7 +49,8 @@
                             {{ $order->shipping_address }}
                         </td>
                         <td class="py-4 px-6">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">More</a>
+                            <a href="{{ route('track-orders.show', $order) }}"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Manage</a>
                         </td>
                     </tr>
                     @endforeach

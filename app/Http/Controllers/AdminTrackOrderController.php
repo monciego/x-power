@@ -47,9 +47,9 @@ class AdminTrackOrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::with('user', 'product')->findOrFail($id);
+        return view('administrator.orders.show', compact('order'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -70,7 +70,11 @@ class AdminTrackOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Order::where('id', $id)->update([
+            'status' => $request->status
+        ]);
+
+        return redirect(route('track-orders.index'))->with('success-message', 'Status updated Successfully!');
     }
 
     /**
