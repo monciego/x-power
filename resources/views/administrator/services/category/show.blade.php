@@ -1,6 +1,8 @@
 <x-app-layout>
     @section('title', 'Category Service')
-    @foreach ($services as $service)
+    @forelse ($services as $service)
     <li>{{ $service->service_name }}</li>
-    @endforeach
+    @empty
+    <li>This category has no service listed.</li>
+    @endforelse
 </x-app-layout>

@@ -1,6 +1,8 @@
 <x-app-layout>
     @section('title', 'Product Categories')
-    @foreach ($products as $product)
+    @forelse ($products as $product)
     <li>{{ $product->product_name }}</li>
-    @endforeach
+    @empty
+    <li>This category has no product listed.</li>
+    @endforelse
 </x-app-layout>
