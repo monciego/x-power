@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title', 'Login your X-Power Acount')
     <div class="relative block md:flex h-screen items-center">
         <div class="w-full md:w-1/2 relative z-1 overflow-hidden">
             <div class="bg-indigo-500 h-screen overflow-hidden">
