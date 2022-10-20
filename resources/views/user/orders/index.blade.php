@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'My Orders')
     <div class="py-10 px-2 sm:px-4 lg:px-8">
         <div class="pointer-events-auto w-full">
             <div class="flex h-full flex-col  bg-[#1a1f23] rounded-md shadow-xl">

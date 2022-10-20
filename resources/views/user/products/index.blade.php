@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Products')
     <div class="py-10 px-2 sm:px-4 lg:px-8">
         <form class="flex items-center">
             <label for="simple-search" class="sr-only">Search</label>

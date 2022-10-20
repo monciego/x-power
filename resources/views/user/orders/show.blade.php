@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', isset($order) ? $order->product->product_name : 'Order')
     <div class="py-10 px-2 sm:px-4 lg:px-8">
         <!-- component -->
         <main class="p-10 rounded-md w-full h-full bg-[#1a1f23]">

@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Service Category')
     <div class="col-span-full xl:col-span-6  bg-[#1a1f23] shadow-lg rounded-sm  ">
         <header class="px-5 py-4 border-b border-slate-700 flex justify-between items-center">
             <h2 class="font-semibold text-slate-50">Service Categories</h2>

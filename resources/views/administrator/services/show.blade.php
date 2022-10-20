@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', isset($service) ? $service->service_name : 'Service')
     <div
         class="p-6 w-full mx-auto lg:max-w-xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4" viewBox="0 0 24 24"

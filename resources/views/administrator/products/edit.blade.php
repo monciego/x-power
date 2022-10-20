@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Edit Product')
     <div class="px-2 md:px-40">
         <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
             @csrf

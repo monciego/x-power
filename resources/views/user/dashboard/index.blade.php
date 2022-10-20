@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Discover')
     <div class="py-10 px-2 sm:px-4 lg:px-8">
         <h2 class="text-2xl font-bold mb-6 text-white">Discover</h2>
         <div class="flex gap-4 md:flex-nowrap flex-wrap">

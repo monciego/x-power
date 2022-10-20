@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', isset($product) ? 'Checkout ' . $product->product_name : 'Product')
     <div>
         <div class="py-16 px-4 md:px-6 2xl:px-0 flex justify-center items-center 2xl:mx-auto 2xl:container">
             <div class="flex flex-col justify-start items-start w-full space-y-9">

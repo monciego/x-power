@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', isset($product) ? $product->product_name : 'Product')
     <div class="mx-auto w-full lg:w-[90%] rounded-lg border shadow-md bg-gray-900 border-gray-700">
         <div class="h-[18rem]">
             @if ($product->product_image)

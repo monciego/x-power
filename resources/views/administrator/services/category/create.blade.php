@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Create Category')
     <div class="px-2 md:px-40">
         <form action="{{ route('service-categories.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
