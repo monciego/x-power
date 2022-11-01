@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserProductController;
+use App\Http\Controllers\UserServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,7 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
     Route::resource('user-products', UserProductController::class);
     Route::get('/check-out/{product}', [OrderController::class, 'checkOut'])->name('checkout.index');
     Route::resource('order', OrderController::class);
+    Route::resource('user-services', UserServiceController::class);
 });
 
 require __DIR__.'/auth.php';

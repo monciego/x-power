@@ -13,10 +13,10 @@
                     <h2 class="text-2xl md:text-3xl font-bold mr-auto cursor-pointer text-gray-200">
                         Break downs won’t break you down anymore.
                     </h2>
-                    <button
+                    <a href="{{ route('user-services.index') }}"
                         class="my-4 transition ease-in duration-300 inline-flex items-center text-sm font-medium  bg-purple-700 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-md hover:bg-purple-600 ">
                         <span>Explore our services</span>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="h-[30rem] w-full  rounded-lg shadow-md bg-[#1a1f23] p-4 relative">
