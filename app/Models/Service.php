@@ -20,4 +20,8 @@ class Service extends Model
     public function category_service() {
         return $this->belongsTo(CategoryService::class);
     }
+
+    public function service_history() {
+        return $this->belongsTo(ServiceHistory::class);
+    }
 }

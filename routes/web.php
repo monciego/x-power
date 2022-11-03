@@ -8,6 +8,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceHistoryController;
 use App\Http\Controllers\UserProductController;
 use App\Http\Controllers\UserServiceController;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +53,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
     Route::get('/check-out/{product}', [OrderController::class, 'checkOut'])->name('checkout.index');
     Route::resource('order', OrderController::class);
     Route::resource('user-services', UserServiceController::class);
+    Route::resource('service-history', ServiceHistoryController::class);
+    Route::get('/avail-service/{service}', [ServiceHistoryController::class, 'availService'])->name('avail-service.index');
 });
 
 require __DIR__.'/auth.php';

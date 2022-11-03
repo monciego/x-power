@@ -19,13 +19,18 @@
                         :active="request()->routeIs('user-products.index')">
                         {{ __('Products') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('order.index')" :active="request()->routeIs('order.index')">
-                        {{ __('Orders') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('user-services.index')"
                         :active="request()->routeIs('user-services.index')">
                         {{ __('Services') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('order.index')" :active="request()->routeIs('order.index')">
+                        {{ __('Orders') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('service-history.index')"
+                        :active="request()->routeIs('service-history.index')">
+                        {{ __('Service History') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
@@ -89,13 +94,17 @@
                 :active="request()->routeIs('user-products.index')">
                 {{ __('Products') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link class="bg-[#161616] text-white" :href="route('user-services.index')"
+                :active="request()->routeIs('user-services.index')">
+                {{ __('Services') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link class="bg-[#161616] text-white" :href="route('order.index')"
                 :active="request()->routeIs('order.index')">
                 {{ __('My Orders') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link class="bg-[#161616] text-white" :href="route('user-services.index')"
-                :active="request()->routeIs('user-services.index')">
-                {{ __('Services') }}
+            <x-responsive-nav-link class="bg-[#161616] text-white" :href="route('service-history.index')"
+                :active="request()->routeIs('service-history.index')">
+                {{ __('Service History') }}
             </x-responsive-nav-link>
         </div>
 

@@ -6,24 +6,13 @@
         </path>
     </svg>
     <div class="flex  items-center justify-between">
-        <div class="flex item-center gap-2">
+        <div class="flex flex-col md:flex-row item-center gap-2">
             <h5 class="text-2xl font-semibold tracking-tight text-white">
                 {{ $service->service_name }}
             </h5>
             <div class="bg-slate-700 text-slate-50 text-sm py-2 px-4 rounded">
                 {{ $service->category_service->service_category }}
             </div>
-        </div>
-        <div>
-            @if ($service->is_available === 1)
-            <span class="bg-indigo-700 text-white px-4 rounded text-sm py-1">
-                Available
-            </span>
-            @else
-            <span class="bg-red-700 text-white px-4 rounded text-sm py-1">
-                Not Available
-            </span>
-            @endif
         </div>
     </div>
     @if ($service->service_description)
@@ -34,15 +23,15 @@
     <p class="text-2xl font-medium text-gray-100 mt-2 mb-3">₱{{ $service->service_price_range }}</p>
 
     @if($service->is_available === 0)
-    <div class="flex justify-between items-center">
+    <div class="flex mt-4 justify-between items-center">
         <button
             class="focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white bg-red-600 hover:bg-red-700 focus:ring-red-800">
             Not Available
         </button>
     </div>
     @else
-    <div class="flex justify-between items-center">
-        <a href=""
+    <div class="flex mt-4 justify-between items-center">
+        <a href="{{ route('avail-service.index', $service) }}"
             class="focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
             Avail Service
         </a>
