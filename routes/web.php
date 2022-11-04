@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminTrackOrderController;
+use App\Http\Controllers\AdminTrackServiceTransactionController;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\CategoryServiceController;
 use App\Http\Controllers\DashboardController;
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
     Route::resource('services', ServiceController::class);
     Route::resource('service-categories', CategoryServiceController::class);
     Route::resource('track-orders', AdminTrackOrderController::class);
+    Route::resource('service-transactions', AdminTrackServiceTransactionController::class);
 });
 
 // Route for user
