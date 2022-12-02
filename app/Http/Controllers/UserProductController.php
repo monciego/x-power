@@ -15,7 +15,7 @@ class UserProductController extends Controller
     public function index()
     {
         return view('user.products.index', [
-            'products' => Product::with('category_product')->latest()->paginate(6)
+            'products' => Product::with('category_product')->latest()->paginate(15)
         ]);
     }
 

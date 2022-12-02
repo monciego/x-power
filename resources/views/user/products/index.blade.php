@@ -39,6 +39,9 @@
                 @include('user.products.product')
             </div>
         </div>
+        <div class="mt-4">
+            {{ $products->links() }}
+        </div>
     </div>
 
 </x-app-layout>

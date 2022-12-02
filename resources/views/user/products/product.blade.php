@@ -1,7 +1,7 @@
 @foreach ($products as $product)
 <div>
     <div
-        class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+        class="relative my-4 h-80 w-full overflow-hidden rounded-lg sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
         @if ($product->product_image)
         <img src="{{ Storage::url($product->product_image) }}" alt="{{ $product->product_name }}"
             class="h-full w-full object-cover object-center">
