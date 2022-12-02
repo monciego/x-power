@@ -18,6 +18,13 @@ class Product extends Model
         'is_available',
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+        if($filters['search'] ?? false) {
+            $query->where('product_name', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function category_product() {
         return $this->belongsTo(CategoryProduct::class);
     }
