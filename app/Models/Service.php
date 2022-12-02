@@ -17,6 +17,13 @@ class Service extends Model
         'is_available',
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+        if($filters['search'] ?? false) {
+            $query->where('service_name', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function category_service() {
         return $this->belongsTo(CategoryService::class);
     }

@@ -15,7 +15,7 @@ class UserServiceController extends Controller
     public function index()
     {
         return view('user.services.index', [
-            'services' => Service::with('category_service')->latest()->paginate(6)
+            'services' => Service::with('category_service')->latest()->filter(request(['search']))->paginate(15)
         ]);
     }
 
