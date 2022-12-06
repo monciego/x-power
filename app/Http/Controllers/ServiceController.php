@@ -79,7 +79,9 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+         return view('administrator.services.edit', [
+              'categories' => CategoryService::all()
+        ])->with('service', $service);
     }
 
     /**
@@ -91,7 +93,21 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        //
+          $formFields = $request->validate([
+             'service_name' => 'required',
+            'service_price_range' => 'required',
+            'category_service_id' => 'required',
+        ]);
+
+            $service->update([
+            'service_name' => $request->service_name,
+            'category_service_id' => $request->category_service_id,
+            'service_price_range' => $request->service_price_range,
+            'service_description' => $request->service_description,
+            'is_available' => $request->is_available === 'on',
+        ]);
+
+         return redirect(route('services.index'))->with('success-message', 'Service updated successfully!');
     }
 
     /**
