@@ -44,7 +44,8 @@
                             ₱{{ $service->service->service_price_range }}
                         </td>
                         <td class="py-4 px-6">
-                            <a href="" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Manage</a>
+                            <a href="{{ route('service-transactions.show', $service->id) }}"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Manage</a>
                         </td>
                     </tr>
                     @endforeach
