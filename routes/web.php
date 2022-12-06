@@ -35,7 +35,7 @@ Route::get('/', function () {
 
 // ** Route for both (admin and user)
 // Route::group(['middleware' => ['auth', 'verified']], function() {//- if need email verification
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth', 'verified']], function() {
      Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
