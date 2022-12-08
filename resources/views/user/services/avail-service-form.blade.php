@@ -11,7 +11,7 @@
                 {{ $service->service_name }}
             </p>
             <p class="text-base font-semibold leading-none  text-white">
-                ₱{{ $service->service_price_range }}
+                Estimated price of Service Fee: ₱{{ $service->service_price_range }}
             </p>
         </div>
     </div>
