@@ -14,9 +14,9 @@ class UserProductController extends Controller
      */
     public function index()
     {
-        return view('user.products.index', [
-            'products' => Product::with('category_product')->latest()->filter(request(['search']))->paginate(15)
-        ]);
+        $products = Product::with('category_product')->latest()->filter(request(['search']))->paginate(15);
+        $available_product = Product::where('is_available', 1)->count();
+        return view('user.products.index', compact('products', 'available_product'));
     }
 
     /**

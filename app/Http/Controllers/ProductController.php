@@ -16,9 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('administrator.products.index',[
-            'products' => Product::with('category_product')->latest()->paginate(6)
-        ]);
+        $products =  Product::with('category_product')->latest()->paginate(6);
+        $available_product = Product::where('is_available', 1)->count();
+        return view('administrator.products.index', compact('products', 'available_product'));
     }
 
     /**
