@@ -42,8 +42,16 @@
                                                 }}</p>
                                         </div>
                                         <div class="flex flex-1 items-end justify-between text-sm">
-                                            <p class="text-gray-100">Placed {{ $order->created_at->diffForHumans() }}
-                                            </p>
+                                            <div>
+                                                <p class="text-gray-100">Placed {{ $order->created_at->diffForHumans()
+                                                    }}
+                                                </p>
+                                                <p class="text-gray-100">Estimated Delivery Date:
+                                                    {{ \Carbon\Carbon::parse($order->delivery_date)->isoFormat('MMM D
+                                                    YYYY')
+                                                    }}
+                                                </p>
+                                            </div>
                                             <div class="flex">
                                                 <a href="{{ route('order.show', $order) }}"
                                                     class="font-bold underline text-indigo-800 hover:text-indigo-900">

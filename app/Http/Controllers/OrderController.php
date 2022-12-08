@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+Use \Carbon\Carbon;
+
 
 class OrderController extends Controller
 {
@@ -60,6 +62,9 @@ class OrderController extends Controller
             'shipping_address' => 'required|string|max:255',
         ]);
 
+        $date = Carbon::now();
+        $delivery_date = $date->addWeeks(1)->format('Y-m-d');
+
         Order::create([
             'user_id' => $request->user_id,
             'product_id' => $request->product_id,
@@ -68,6 +73,7 @@ class OrderController extends Controller
             'contact_number' => $request->contact_number,
             'shipping_address' => $request->shipping_address,
             'status' => $request->status,
+            'delivery_date' => $delivery_date,
             'transaction_number' => $this->transactionNumber(),
         ]);
 

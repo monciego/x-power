@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('shipping_address');
             $table->string('transaction_number');
             $table->string('status')->nullable();
+            $table->string('delivery_date')->nullable();
             $table->timestamps();
         });
     }

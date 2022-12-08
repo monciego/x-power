@@ -9,6 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
+     protected $dates = ['delivery_date'];
+
     protected $fillable = [
         'user_id',
         'product_id',
@@ -18,6 +20,7 @@ class Order extends Model
         'shipping_address',
         'status',
         'transaction_number',
+        'delivery_date',
     ];
 
 

@@ -38,7 +38,11 @@
                         @endif
                         <p class="text-lg text-white">Order {{ $order->transaction_number }}</p>
                         <p class="text-md mb-4 text-slate-200">Placed {{ $order->created_at->diffForHumans() }}</p>
-
+                        <p class="text-md mb-4 text-slate-200">
+                            Estimated Delivery Date: {{ \Carbon\Carbon::parse($order->delivery_date)->isoFormat('MMM D
+                            YYYY')
+                            }}
+                        </p>
                         <hr>
 
                         <div class="mt-4 ">

@@ -71,10 +71,11 @@ class AdminTrackOrderController extends Controller
     public function update(Request $request, $id)
     {
         Order::where('id', $id)->update([
-            'status' => $request->status
+            'status' => $request->status,
+            'delivery_date' => $request->delivery_date
         ]);
 
-        return redirect(route('track-orders.index'))->with('success-message', 'Status updated Successfully!');
+        return redirect(route('track-orders.index'))->with('success-message', 'Data updated Successfully!');
     }
 
     /**
