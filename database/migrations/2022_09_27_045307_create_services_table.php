@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
              $table->foreignId('category_service_id');
             $table->string('service_name');
+            $table->string('service_fee')->nullable();
             $table->longText('service_description')->nullable();
             $table->string('service_price_range');
             $table->boolean('is_available')->nullable();

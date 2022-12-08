@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('product_name');
             $table->foreignId('category_product_id');
             $table->string('product_price');
+            $table->string('shipping_fee')->nullable();
             $table->string('product_description')->nullable();
+            $table->string('available_product')->nullable();
             $table->string('product_image')->nullable();
             $table->boolean('is_available')->nullable();
             $table->timestamps();

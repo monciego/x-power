@@ -15,6 +15,8 @@ class Product extends Model
         'product_price',
         'product_description',
         'product_image',
+        'shipping_fee',
+        'available_product',
         'is_available',
     ];
 
