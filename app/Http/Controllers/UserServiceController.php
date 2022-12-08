@@ -14,9 +14,9 @@ class UserServiceController extends Controller
      */
     public function index()
     {
-        return view('user.services.index', [
-            'services' => Service::with('category_service')->latest()->filter(request(['search']))->paginate(15)
-        ]);
+        $services =  Service::with('category_service')->latest()->filter(request(['search']))->paginate(15);
+        $available_product = Service::where('is_available', 1)->count();
+        return view('user.services.index', compact('services', 'available_product'));
     }
 
     /**

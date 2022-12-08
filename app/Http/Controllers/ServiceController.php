@@ -16,9 +16,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('administrator.services.index', [
-             'services' => Service::latest()->paginate(6)
-        ]);
+        $services = Service::latest()->paginate(6);
+        $available_product = Service::where('is_available', 1)->count();
+        return view('administrator.services.index', compact('services', 'available_product') );
     }
 
     /**

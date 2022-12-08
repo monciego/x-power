@@ -34,7 +34,9 @@
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10">
         <div class="mx-auto max-w-2xl lg:max-w-none">
-            <h2 class="text-2xl font-bold text-white">Services</h2>
+            <h2 class="text-2xl font-bold text-white">Services
+                <span class="text-lg">({{ $available_product }} available services)</span>
+            </h2>
             <div class="mt-6 space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
                 @forelse ($services as $service)
                 @include('user.services.service')
