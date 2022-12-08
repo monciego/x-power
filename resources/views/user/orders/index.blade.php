@@ -30,8 +30,12 @@
                                                         {{ $order->status }}
                                                     </div>
                                                 </div>
-
-                                                <p class="ml-4">₱{{ $order->product->product_price }}</p>
+                                                <?php
+                                                $price = $order->product->product_price;
+                                                $ship_fee = $order->product->shipping_fee;
+                                                $total_fee = $price + $ship_fee;
+                                                ?>
+                                                <p class="ml-4">₱{{ $total_fee}}</p>
                                             </div>
                                             <p class="mt-1 text-sm font-medium text-gray-200">{{
                                                 $order->product->category_product->product_category

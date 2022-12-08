@@ -44,6 +44,7 @@ class ProductController extends Controller
         $formFields = $request->validate([
             'product_name' => 'required',
             'product_price' => 'required',
+            'shipping_fee' => 'nullable',
             'category_product_id' => 'required',
             'product_image' => ['nullable','mimes:png,jpg,jpeg,gif', 'max:2048'],
         ]);
@@ -60,6 +61,7 @@ class ProductController extends Controller
             'category_product_id' => $request->category_product_id,
             'product_price' => $request->product_price,
             'product_description' => $request->product_description,
+            'shipping_fee' => $request->shipping_fee,
             'product_image' => $product_image,
             'is_available' => $request->is_available === 'on',
         ]);
@@ -106,6 +108,7 @@ class ProductController extends Controller
             'product_name' => 'required',
             'product_price' => 'required',
             'category_product_id' => 'required',
+            'shipping_fee' => 'nullable',
             'product_image' => ['nullable','mimes:png,jpg,jpeg,gif', 'max:2048'],
         ]);
 
@@ -120,6 +123,7 @@ class ProductController extends Controller
             'product_name' => $request->product_name,
             'category_product_id' => $request->category_product_id,
             'product_price' => $request->product_price,
+            'shipping_fee' => $request->shipping_fee,
             'product_description' => $request->product_description,
             'product_image' => $product_image,
             'is_available' => $request->is_available === 'on',

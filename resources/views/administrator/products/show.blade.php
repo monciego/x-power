@@ -32,7 +32,8 @@
                 </span>
                 @endif
             </div>
-            <p class="mb-3 font-normal text-lg text-gray-100">₱{{ $product->product_price }}</p>
+            <p class="mb-3 font-normal text-lg text-gray-100">Product Price: ₱{{ $product->product_price }}</p>
+            <p class="mb-3 font-normal text-lg text-gray-100">Shipping fee: ₱{{ $product->shipping_fee }}</p>
             @if ($product->product_description)
             <p class="mb-3 font-normaltext-gray-400">{!! $product->product_description !!}</p>
             @endif

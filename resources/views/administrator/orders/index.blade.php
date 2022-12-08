@@ -44,7 +44,12 @@
                             {{ $order->status }}
                         </td>
                         <td class="py-4 px-6">
-                            ₱{{ $order->product->product_price }}
+                            <?php
+                                $price = $order->product->product_price;
+                                $ship_fee = $order->product->shipping_fee;
+                                $total_fee = $price + $ship_fee;
+                            ?>
+                            ₱{{ $total_fee }}
                         </td>
                         <td class="py-4 px-6">
                             {{ $order->shipping_address }}

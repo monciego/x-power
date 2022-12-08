@@ -23,7 +23,14 @@
                             </div>
                         </div>
                         <p class="text-slate-100 text-xl">{{ $order->product->category_product->product_category }}</p>
-                        <h2 class="text-2xl my-3 text-white">₱{{ $order->product->product_price }}</h2>
+                        <?php
+                        $price = $order->product->product_price;
+                        $ship_fee = $order->product->shipping_fee;
+                        $total_fee = $price + $ship_fee;
+                        ?>
+                        <h2 class="text-base text-white">Product Price: ₱{{ $order->product->product_price }}</h2>
+                        <h2 class="text-base text-white">Shipping Fee: ₱{{ $order->product->shipping_fee }}</h2>
+                        <h2 class="text-2xl font-bold mb-3 mt-1 text-white">Total Price: ₱{{ $total_fee }}</h2>
                         @if ($order->product->product_description)
                         <p class="text-lg text-gray-100	">
                             {{ $order->product->product_description }}

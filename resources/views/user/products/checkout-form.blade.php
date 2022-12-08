@@ -10,8 +10,31 @@
             <p class="text-xl md:text-2xl leading-normal  text-gray-50">
                 {{ $product->product_name }}
             </p>
-            <p class="text-base font-semibold leading-none  text-white">₱{{
-                $product->product_price }}</p>
+            <p class="text-base font-semibold leading-none  text-white">
+                Product Price: <span class="">
+                    ₱{{ $product->product_price }}
+                </span>
+            </p>
+            <p class="text-base font-semibold leading-none  text-white">
+                Shipping Fee: <span class="">
+                    ₱{{
+                    $product->shipping_fee }}</p>
+            </span>
+
+            <?php
+
+            $price = $product->product_price;
+            $ship_fee = $product->shipping_fee;
+            $total_fee = $price + $ship_fee;
+
+            ?>
+
+            <p class="text-xl font-semibold leading-none  text-white">
+                Total Fee: <span class="font-bold">
+                    ₱{{ $total_fee }}</p>
+            </span>
+
+
         </div>
         <div class="mt-6 w-full sm:mt-0 xl:my-10 xl:px-20 h-80  sm:w-96 xl:w-auto py-8 rounded">
             <img class="rounded h-full w-full object-cover" src="{{ Storage::url($product->product_image) }}"

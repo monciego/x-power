@@ -26,7 +26,9 @@
         {{ $product->product_description }}
     </p>
     @endif
-
+    <p class="text-gray-300 my-2 text-base">
+        Shipping Fee: <span class="font-bold">₱{{ $product->shipping_fee }}</span>
+    </p>
     @if($product->is_available === 0)
     <div class="flex justify-between items-center">
         <span class="text-3xl font-bold text-white">₱{{ $product->product_price }}</span>
