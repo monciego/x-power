@@ -14,6 +14,9 @@
                     <div class="font-semibold text-left">Product Price</div>
                 </th>
                 <th class="p-2">
+                    <div class="font-semibold text-left">Product Quantity</div>
+                </th>
+                <th class="p-2">
                     <div class="font-semibold text-left">Product Status</div>
                 </th>
                 <th class="p-2">
@@ -33,6 +36,9 @@
                 </td>
                 <td class="p-2 ">
                     <p>₱{{ $product->product_price }}</p>
+                </td>
+                <td class="p-2 ">
+                    <p>{{ $product->available_product }}</p>
                 </td>
                 <td class="p-2 ">
                     @if ($product->is_available === 1)

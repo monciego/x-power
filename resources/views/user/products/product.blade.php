@@ -9,7 +9,7 @@
         <img class="h-full w-full object-cover object-center" src="{{ asset('images/no-image.jpg') }}" alt="No Image">
         @endif
 
-        @if ($product->is_available === 0)
+        @if ($product->is_available === 0 || $product->available_product === '0')
         <div class="absolute bg-slate-800/50 flex items-center justify-center text-white text-2xl">
             Out of Stock
         </div>
@@ -29,7 +29,18 @@
     <p class="text-gray-300 my-2 text-base">
         Shipping Fee: <span class="font-bold">₱{{ $product->shipping_fee }}</span>
     </p>
+    <p class="text-gray-300 my-2 text-base">
+        Available Stock: <span class="font-bold">{{ $product->available_product }}</span>
+    </p>
     @if($product->is_available === 0)
+    <div class="flex justify-between items-center">
+        <span class="text-3xl font-bold text-white">₱{{ $product->product_price }}</span>
+        <button
+            class="focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white bg-red-600 hover:bg-red-700 focus:ring-red-800">
+            Not Available
+        </button>
+    </div>
+    @elseif ($product->available_product === '0')
     <div class="flex justify-between items-center">
         <span class="text-3xl font-bold text-white">₱{{ $product->product_price }}</span>
         <button

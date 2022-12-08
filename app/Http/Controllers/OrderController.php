@@ -6,7 +6,7 @@ use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 Use \Carbon\Carbon;
-
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -64,6 +64,9 @@ class OrderController extends Controller
 
         $date = Carbon::now();
         $delivery_date = $date->addWeeks(1)->format('Y-m-d');
+
+         DB::table('products')->decrement('available_product', 1);
+
 
         Order::create([
             'user_id' => $request->user_id,
