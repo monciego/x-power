@@ -92,8 +92,9 @@ class CategoryProductController extends Controller
      * @param  \App\Models\CategoryProduct  $categoryProduct
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryProduct $categoryProduct)
+    public function destroy(CategoryProduct $productCategory)
     {
-        //
+        $productCategory->delete();
+        return redirect(route('product-categories.index'))->with('danger-message', 'Product Category Deleted Successfully');
     }
 }

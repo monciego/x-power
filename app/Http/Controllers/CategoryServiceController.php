@@ -91,8 +91,9 @@ class CategoryServiceController extends Controller
      * @param  \App\Models\CategoryService  $categoryService
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryService $categoryService)
+    public function destroy(CategoryService $serviceCategory)
     {
-        //
+        $serviceCategory->delete();
+        return redirect(route('services.index'))->with('danger-message', 'Service Category Deleted Successfully');
     }
 }

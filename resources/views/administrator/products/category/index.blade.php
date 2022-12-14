@@ -13,13 +13,23 @@
         </div>
         <div class="p-3 grid grid-cols-6 gap-6">
             @foreach ($categories as $category)
-            <a href="{{ route('product-categories.show', $category) }}" class="col-span-6 sm:col-span-6 lg:col-span-2">
+            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <div class="block p-4   bg-gray-800 border-gray-700 hover:bg-gray-700">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight0 text-white">
                         {{ $category->product_category }}
                     </h5>
+                    <div class="flex items-center gap-3 mt-4">
+                        <div>
+                            @include('administrator.products.category.delete')
+                        </div>
+                        <div>
+                            <a class="py-2 px-3 text-sm font-medium text-center  rounded  focus:ring-4 focus:outline-none  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-800"
+                                href="{{ route('product-categories.show', $category) }}">
+                                Details</a>
+                        </div>
+                    </div>
                 </div>
-            </a>
+            </div>
             @endforeach
         </div>
 
