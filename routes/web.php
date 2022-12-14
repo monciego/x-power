@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminTrackOrderController;
 use App\Http\Controllers\AdminTrackServiceTransactionController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\CategoryServiceController;
 use App\Http\Controllers\DashboardController;
@@ -58,6 +59,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
     Route::resource('order', OrderController::class);
     Route::resource('user-services', UserServiceController::class);
     Route::resource('service-history', ServiceHistoryController::class);
+    Route::post("/add-to-cart",[CartController::class,'addToCart'])->name('addToCart');
+    Route::resource('cart', CartController::class);
     Route::get('/avail-service/{service}', [ServiceHistoryController::class, 'availService'])->name('avail-service.index');
 });
 

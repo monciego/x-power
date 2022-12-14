@@ -49,6 +49,12 @@
         </button>
     </div>
     @else
+    <form action="{{ route('addToCart') }}" method="POST">
+        @csrf
+        <input type="hidden" name="product_id" value={{ $product->id }}>
+        <input type="hidden" name="user_id" value={{ auth()->user()->id }}>
+        <button type="submit" class="text-white px-4 py-1 mb-4 bg-slate-900 font-bold">Add to Cart</button>
+    </form>
     <div class="flex justify-between items-center">
         <span class="text-3xl font-bold text-white">₱{{ $product->product_price }}</span>
         <a href="{{ route('checkout.index', $product) }}"
