@@ -93,6 +93,10 @@
                         <span aria-hidden="true"> &rarr;</span>
                     </a>
                 </div>
+
+                <a href="/ordernow" class="bg-blue-500 text-white p-4 flex items-center justify-center">
+                    buy now
+                </a>
             </div>
             {{-- <div class="mt-4">
                 {{ $orders->links() }}

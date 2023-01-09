@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 Use \Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class OrderController extends Controller
 {
@@ -45,6 +48,45 @@ class OrderController extends Controller
     public function create()
     {
         //
+    }
+
+    function orderNow(){
+
+      $userId = Auth::user()->id;
+     $total_price= $products= DB::table('carts')
+      ->join('products', 'carts.product_id','=','products.id')   //join function---first parammeter the table want to join and second parameter the columns of current table
+      ->where('carts.user_id',$userId)
+      ->sum('products.product_price');
+
+      return view('user.products.checkout-all', compact('total_price'));
+    }
+
+        function storeAll(Request $request)
+    {
+      $userId = Auth::user()->id;
+      $allCart= Cart::where("user_id", $userId)->get();
+              $date = Carbon::now();
+        $delivery_date = $date->addWeeks(1)->format('Y-m-d');
+
+         DB::table('products')->decrement('available_product', 1);
+      foreach($allCart as $cart){
+        $order = new Order;
+        $order->product_id=$cart['product_id'];
+        $order->user_id=$cart['user_id'];
+        $order->status="Pending";
+        $order->full_name=$request->full_name;
+        $order->email=$request->email;
+        $order->contact_number=$request->contact_number;
+        $order->shipping_address=$request->shipping_address;
+        $order->delivery_date=$delivery_date;
+        $order->transaction_number = $this->transactionNumber();
+
+
+        $order->save();
+        Cart::where("user_id", $userId)->delete();
+      }
+      $request->input();
+      return redirect(route('order.index'))->with('success-message', 'Thank you for your order!');
     }
 
     /**

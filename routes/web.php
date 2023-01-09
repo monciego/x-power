@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth', 'role:administrator']], function() {
 Route::group(['middleware' => ['auth', 'role:user']], function() {
     Route::resource('user-products', UserProductController::class);
     Route::get('/check-out/{product}', [OrderController::class, 'checkOut'])->name('checkout.index');
+    Route::get('ordernow', [OrderController::class, 'orderNow']);
+    Route::post("/order-all",[OrderController::class,'storeAll'])->name('order.all');
     Route::resource('order', OrderController::class);
     Route::resource('user-services', UserServiceController::class);
     Route::resource('service-history', ServiceHistoryController::class);
