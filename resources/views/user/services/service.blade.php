@@ -21,8 +21,24 @@
     </p>
     @endif
     <p class="text-2xl font-medium text-gray-100 mt-2 mb-3">₱{{ $service->service_price_range }}</p>
-
+    <p class="text-base font-medium text-gray-100 mt-2 mb-3">Service Time
+        {{ \Carbon\Carbon::parse($service->service_start)->format('g:i A')}}
+        -
+        {{ \Carbon\Carbon::parse($service->service_end)->format('g:i A')}}
+    </p>
+    @php
+    $first = \Carbon\Carbon::create($service->service_start);
+    $second = \Carbon\Carbon::create($service->service_end);
+    $diff = \Carbon\Carbon::now()->isBetween($first, $second);
+    @endphp
     @if($service->is_available === 0)
+    <div class="flex mt-4 justify-between items-center">
+        <button
+            class="focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white bg-red-600 hover:bg-red-700 focus:ring-red-800">
+            Not Available
+        </button>
+    </div>
+    @elseif (!$diff)
     <div class="flex mt-4 justify-between items-center">
         <button
             class="focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white bg-red-600 hover:bg-red-700 focus:ring-red-800">

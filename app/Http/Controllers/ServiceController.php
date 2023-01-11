@@ -43,12 +43,16 @@ class ServiceController extends Controller
     {
          $formFields = $request->validate([
             'service_name' => 'required',
+            'service_start' => 'required',
+            'service_end' => 'required',
             'service_price_range' => 'required',
             'category_service_id' => 'required',
         ]);
 
         Service::create([
             'service_name' => $request->service_name,
+            'service_start' => $request->service_start,
+            'service_end' => $request->service_end,
             'category_service_id' => $request->category_service_id,
             'service_price_range' => $request->service_price_range,
             'service_description' => $request->service_description,
@@ -101,6 +105,8 @@ class ServiceController extends Controller
 
             $service->update([
             'service_name' => $request->service_name,
+            'service_start' => $request->service_start,
+            'service_end' => $request->service_end,
             'category_service_id' => $request->category_service_id,
             'service_price_range' => $request->service_price_range,
             'service_description' => $request->service_description,

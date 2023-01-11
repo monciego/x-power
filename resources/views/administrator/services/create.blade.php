@@ -28,6 +28,50 @@
             </div>
 
             <div class="mb-6">
+                <label for="service_start" value="07:30:00" class="block mb-2 text-sm font-medium text-gray-300">
+                    Service Time Start
+                </label>
+                <input type="time" name="service_start" id="service_start" value="{{ old('service_start') }}"
+                    class="shadow-sm  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white shadow-sm-light">
+                @error('service_start')
+                <div class="flex items-center gap-1 mt-1 ml-1">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium text-sm">
+                        {{ $message }}
+                    </p>
+                </div>
+                @enderror
+            </div>
+
+            <div class="mb-6">
+                <label for="service_end" value="07:30:00" class="block mb-2 text-sm font-medium text-gray-300">
+                    Service Time End
+                </label>
+                <input type="time" name="service_end" id="service_end" value="{{ old('service_end') }}"
+                    class="shadow-sm  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white shadow-sm-light">
+                @error('service_end')
+                <div class="flex items-center gap-1 mt-1 ml-1">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="#cc0000">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <p class="text-red-600 font-medium text-sm">
+                        {{ $message }}
+                    </p>
+                </div>
+                @enderror
+            </div>
+
+            <div class="mb-6">
                 @if ($categories->count() === 0)
                 <a href="{{ route('service-categories.index') }}"
                     class="mt-4 px-4 py-2 font-medium text-sm flex items-center justify-center  border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out bg-slate-600 hover:bg-slate-700 text-white">

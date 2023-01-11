@@ -35,6 +35,9 @@
         </p>
         @endif
         <p class="text-2xl font-medium mt-2 mb-3">₱{{ $service->service_price_range }}</p>
+        <p class="text-base font-medium mt-2 mb-3">Service Time: {{
+            \Carbon\Carbon::parse($service->service_start)->format('g:i A')}} - {{
+            \Carbon\Carbon::parse($service->service_end)->format('g:i A')}}</p>
 
         <div class="flex items-center gap-3">
             <a href="{{ route('services.edit', $service->id) }}"
