@@ -7,7 +7,7 @@
 
             <div class="mb-6">
                 <label for="product_category" class="block mb-2 text-sm font-medium text-gray-300">
-                    Product Catgory Name
+                    Product Category Name
                 </label>
                 <input type="text" name="product_category" id="product_category" value="{{ old('product_category') }}"
                     class="shadow-sm  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white shadow-sm-light">

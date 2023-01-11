@@ -7,7 +7,7 @@
 
             <div class="mb-6">
                 <label for="service_category" class="block mb-2 text-sm font-medium text-gray-300">
-                    service Catgory Name
+                    Service Category Name
                 </label>
                 <input type="text" name="service_category" id="service_category" value="{{ old('service_category') }}"
                     class="shadow-sm  text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white shadow-sm-light">
